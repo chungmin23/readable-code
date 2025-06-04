@@ -3,9 +3,6 @@ package cleancode.studycafe.tobePratice;
 import cleancode.studycafe.tobePratice.exception.AppException;
 import cleancode.studycafe.tobePratice.io.InputHandler;
 import cleancode.studycafe.tobePratice.io.OutputHandler;
-import cleancode.studycafe.tobePratice.io.StudyCafeFileHandler;
-import cleancode.studycafe.tobePratice.model.StudyCafeLockerPass;
-import cleancode.studycafe.tobePratice.model.StudyCafePass;
 import cleancode.studycafe.tobePratice.model.StudyCafePassType;
 
 import java.util.List;

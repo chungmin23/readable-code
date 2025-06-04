@@ -22,15 +22,15 @@ public class StudyCafePassFlowHandler {
 
 
     public void handleBasicPassSelection(StudyCafePassType passType) {
-        StudyCafePass selectedPass = CommandStudyCafeFile(StudyCafePassType.HOURLY);
+        StudyCafePass selectedPass = handlePassSelection(passType);
         outputHandler.showPassOrderSummary(selectedPass, null);
     }
 
     public void handleFixedPassWithLockerSelection(StudyCafePassType passType) {
-        StudyCafePass selectedPass =  CommandStudyCafeFile(StudyCafePassType.FIXED);
+        StudyCafePass selectedPass =  handlePassSelection(passType);
     }
 
-    private StudyCafePass CommandStudyCafeFile(StudyCafePassType passType) {
+    private StudyCafePass handlePassSelection(StudyCafePassType passType) {
         StudyCafeFileHandler studyCafeFileHandler = new StudyCafeFileHandler();
         List<StudyCafePass> studyCafePasses = studyCafeFileHandler.readStudyCafePasses();
         List<StudyCafePass> filteredPasses  = studyCafePasses.stream()
@@ -68,4 +68,5 @@ public class StudyCafePassFlowHandler {
 
         return selectedPass;
     }
+
 }

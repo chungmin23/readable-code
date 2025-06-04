@@ -52,7 +52,8 @@ public class OutputHandler {
         System.out.println();
         System.out.println("이용 내역");
         System.out.println("이용권: " + selectedPass.display());
-        if (lockerPass != null) {
+        boolean hasLockerPass = lockerPass != null;
+        if (hasLockerPass) {
             System.out.println("사물함: " + lockerPass.display());
         }
 

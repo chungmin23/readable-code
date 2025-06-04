@@ -15,6 +15,8 @@ public class InputHandler {
     private static final String INPUT_WEEKLY = "2";
     private static final String INPUT_FIXED = "3";
 
+    private static final String INPUT_LOCKER = "1";
+
 
     public StudyCafePassType getPassTypeSelectingUserAction() {
         String userInput = SCANNER.nextLine();
@@ -39,7 +41,7 @@ public class InputHandler {
 
     public boolean getLockerSelection() {
         String userInput = SCANNER.nextLine();
-        return "1".equals(userInput);
+        return INPUT_LOCKER.equals(userInput);
     }
 
 }
