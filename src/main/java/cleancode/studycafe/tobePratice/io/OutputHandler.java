@@ -7,17 +7,17 @@ import java.util.List;
 
 public class OutputHandler {
 
-    public void showWelcomeMessage() {
+    private void showWelcomeMessage() {
         System.out.println("*** 프리미엄 스터디카페 ***");
     }
 
-    public void showAnnouncement() {
+    private void showAnnouncement() {
         System.out.println("* 사물함은 고정석 선택 시 이용 가능합니다. (추가 결제)");
         System.out.println("* !오픈 이벤트! 2주권 이상 결제 시 10% 할인, 12주권 결제 시 15% 할인! (결제 시 적용)");
         System.out.println();
     }
 
-    public void askPassTypeSelection() {
+    private void askPassTypeSelection() {
         System.out.println("사용하실 이용권을 선택해 주세요.");
         System.out.println("1. 시간 이용권(자유석) | 2. 주단위 이용권(자유석) | 3. 1인 고정석");
     }
@@ -29,6 +29,12 @@ public class OutputHandler {
             StudyCafePass pass = passes.get(index);
             System.out.println(String.format("%s. ", index + 1) + pass.display());
         }
+    }
+
+    public void showTotalPrint() {
+        showWelcomeMessage();
+        showAnnouncement();
+        askPassTypeSelection();
     }
 
     public void askLockerPass(StudyCafeLockerPass lockerPass) {

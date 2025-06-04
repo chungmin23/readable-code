@@ -18,9 +18,9 @@ public class StudyCafePassMachine {
 
     public void run() {
         try {
-            outputHandler.showWelcomeMessage();
-            outputHandler.showAnnouncement();
-            outputHandler.askPassTypeSelection();
+            // 출력단 통합
+            outputHandler.showTotalPrint();
+
 
             StudyCafePassType studyCafePassType = inputHandler.getPassTypeSelectingUserAction();
 
