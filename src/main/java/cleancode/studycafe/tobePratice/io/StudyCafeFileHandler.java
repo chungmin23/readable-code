@@ -12,16 +12,25 @@ import java.util.List;
 
 public class StudyCafeFileHandler {
 
+    private static final String PASS_CSV_PATH = "src/main/resources/cleancode/studycafe/pass-list.csv";
+
+    private static final String LOCKER_PATH = "src/main/resources/cleancode/studycafe/locker.csv";
+    private static final String CSV_SEPARATOR = ",";
+    private static final int INDEX_TYPE = 0;
+    private static final int INDEX_DURATION = 1;
+    private static final int INDEX_PRICE = 2;
+    private static final int INDEX_DISCOUNT = 3;
+
     public List<StudyCafePass> readStudyCafePasses() {
         try {
-            List<String> lines = Files.readAllLines(Paths.get("src/main/resources/cleancode/studycafe/pass-list.csv"));
+            List<String> lines = Files.readAllLines(Paths.get(PASS_CSV_PATH));
             List<StudyCafePass> studyCafePasses = new ArrayList<>();
             for (String line : lines) {
-                String[] values = line.split(",");
-                StudyCafePassType studyCafePassType = StudyCafePassType.valueOf(values[0]);
-                int duration = Integer.parseInt(values[1]);
-                int price = Integer.parseInt(values[2]);
-                double discountRate = Double.parseDouble(values[3]);
+                String[] values = line.split(CSV_SEPARATOR);
+                StudyCafePassType studyCafePassType = StudyCafePassType.valueOf(values[INDEX_TYPE]);
+                int duration = Integer.parseInt(values[INDEX_DURATION]);
+                int price = Integer.parseInt(values[INDEX_PRICE]);
+                double discountRate = Double.parseDouble(values[INDEX_DISCOUNT]);
 
                 StudyCafePass studyCafePass = StudyCafePass.of(studyCafePassType, duration, price, discountRate);
                 studyCafePasses.add(studyCafePass);
@@ -35,13 +44,13 @@ public class StudyCafeFileHandler {
 
     public List<StudyCafeLockerPass> readLockerPasses() {
         try {
-            List<String> lines = Files.readAllLines(Paths.get("src/main/resources/cleancode/studycafe/locker.csv"));
+            List<String> lines = Files.readAllLines(Paths.get(LOCKER_PATH));
             List<StudyCafeLockerPass> lockerPasses = new ArrayList<>();
             for (String line : lines) {
-                String[] values = line.split(",");
-                StudyCafePassType studyCafePassType = StudyCafePassType.valueOf(values[0]);
-                int duration = Integer.parseInt(values[1]);
-                int price = Integer.parseInt(values[2]);
+                String[] values = line.split(CSV_SEPARATOR);
+                StudyCafePassType studyCafePassType = StudyCafePassType.valueOf(values[INDEX_TYPE]);
+                int duration = Integer.parseInt(values[INDEX_DURATION]);
+                int price = Integer.parseInt(values[INDEX_PRICE]);
 
                 StudyCafeLockerPass lockerPass = StudyCafeLockerPass.of(studyCafePassType, duration, price);
                 lockerPasses.add(lockerPass);
@@ -52,5 +61,7 @@ public class StudyCafeFileHandler {
             throw new RuntimeException("파일을 읽는데 실패했습니다.", e);
         }
     }
+
+
 
 }

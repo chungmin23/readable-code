@@ -11,16 +11,21 @@ public class InputHandler {
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
+    private static final String INPUT_HOURLY = "1";
+    private static final String INPUT_WEEKLY = "2";
+    private static final String INPUT_FIXED = "3";
+
+
     public StudyCafePassType getPassTypeSelectingUserAction() {
         String userInput = SCANNER.nextLine();
 
-        if ("1".equals(userInput)) {
+        if (INPUT_HOURLY.equals(userInput)) {
             return StudyCafePassType.HOURLY;
         }
-        if ("2".equals(userInput)) {
+        if (INPUT_WEEKLY.equals(userInput)) {
             return StudyCafePassType.WEEKLY;
         }
-        if ("3".equals(userInput)) {
+        if (INPUT_FIXED.equals(userInput)) {
             return StudyCafePassType.FIXED;
         }
         throw new AppException("잘못된 입력입니다.");

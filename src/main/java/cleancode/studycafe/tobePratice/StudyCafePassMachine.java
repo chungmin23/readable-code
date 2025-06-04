@@ -21,7 +21,6 @@ public class StudyCafePassMachine {
             // 출력단 통합
             outputHandler.showTotalPrint();
 
-
             StudyCafePassType studyCafePassType = inputHandler.getPassTypeSelectingUserAction();
 
             StudyCafePassFlowHandler studyCafePassFlowHandler = new StudyCafePassFlowHandler(inputHandler, outputHandler);
