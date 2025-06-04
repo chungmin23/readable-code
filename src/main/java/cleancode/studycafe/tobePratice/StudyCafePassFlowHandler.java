@@ -48,8 +48,13 @@ public class StudyCafePassFlowHandler {
                     )
                     .findFirst()
                     .orElse(null);
+
+
             boolean lockerSelection = false;
-            if (lockerPass != null) {
+
+            boolean hasMatchingLockerPass = lockerPass != null;
+
+            if (hasMatchingLockerPass) {
                 outputHandler.askLockerPass(lockerPass);
                 lockerSelection = inputHandler.getLockerSelection();
             }
